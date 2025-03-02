@@ -53,12 +53,12 @@ public class Customer {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        //remove all white spaces
-        phoneNumber = phoneNumber.replaceAll("\\s", "");
-
         //check if phone number is null or empty
         if (isNullOrBlank(phoneNumber))
             throw new IllegalArgumentException("Name is null or empty");
+
+        //remove all white spaces
+        phoneNumber = phoneNumber.replaceAll("\\s", "");
 
         //check if phone number is not 10-13 digits
         if (!phoneNumber.matches("\\+?\\d{10,13}"))
