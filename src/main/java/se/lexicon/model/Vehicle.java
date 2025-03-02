@@ -26,12 +26,21 @@ public class Vehicle {
     }
 
     private void setVehicleType(VehicleType vehicleType) {
-        isNullOrBlank(vehicleType.name(), "Vehicle type is null or empty");
+        if (vehicleType == null || vehicleType.name().isBlank())
+            throw new IllegalArgumentException("Vehicle type is null or empty");
         this.vehicleType = vehicleType;
     }
 
     private void isNullOrBlank(String text, String message) {
         boolean status = (text == null || text.isBlank());
         if (status) throw new IllegalArgumentException(message);
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "vehicleType=" + vehicleType +
+                ", plateNumber='" + plateNumber + '\'' +
+                '}';
     }
 }
