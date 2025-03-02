@@ -33,13 +33,13 @@ public class Customer {
         return name;
     }
 
-    private void setName(String name) {
-        //remove leading and trailing white spaces
-        name = name.strip();
-
+    public void setName(String name) {
         //check if name is null or empty
         if (isNullOrBlank(name))
             throw new IllegalArgumentException("Name is null or empty");
+
+        //remove leading and trailing white spaces
+        name = name.strip();
 
         //check if name is less than 2 characters
         if (name.length() < 2)
