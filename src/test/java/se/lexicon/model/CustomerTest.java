@@ -14,6 +14,7 @@ class CustomerTest {
         testObject = new Customer(
                 "Mike Torsion",
                 " 076 1234567 ",
+                1,
                 new Vehicle(
                         VehicleType.CAR,
                         "ABC123"
@@ -23,7 +24,7 @@ class CustomerTest {
 
     @Test
     void testCustomerCreation() {
-        assertEquals(0, testObject.getId());
+        assertEquals(1, testObject.getId());
         assertEquals("Mike Torsion", testObject.getName());
         assertEquals("0761234567", testObject.getPhoneNumber());
     }
@@ -35,7 +36,7 @@ class CustomerTest {
     }
 
     @Test
-    void testInValidPhoneNumber() {
+    void testInvalidPhoneNumber() {
         assertThrows(IllegalArgumentException.class, () -> testObject.setPhoneNumber(" 07600 "));
     }
 

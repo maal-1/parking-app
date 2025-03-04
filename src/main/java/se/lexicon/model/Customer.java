@@ -2,15 +2,14 @@ package se.lexicon.model;
 
 public class Customer {
 
-    private final Integer id;
+    private Integer id;
     private String name;
     private String phoneNumber;
     private Vehicle vehicle;
 
 
-    public Customer(String name, String phoneNumber, Vehicle vehicle) {
-        //todo: implement id generator
-        id = 0;
+    public Customer(String name, String phoneNumber, int id, Vehicle vehicle) {
+        setId(id);
         setName(name);
         setPhoneNumber(phoneNumber);
         setVehicle(vehicle);
@@ -23,6 +22,12 @@ public class Customer {
     public void setVehicle(Vehicle vehicle) {
         //todo: implement validation
         this.vehicle = vehicle;
+    }
+
+    public void setId(int id) {
+        if (id < 1)
+            throw new IllegalArgumentException("Id should be greater than 0");
+        this.id = id;
     }
 
     public int getId() {
