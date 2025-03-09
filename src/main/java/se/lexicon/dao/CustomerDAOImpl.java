@@ -12,12 +12,13 @@ public class CustomerDAOImpl implements CustomerDAO{
     private ArrayList<Customer> storage = new ArrayList<>();
 
     @Override
-    public void saveCustomer(Customer customer) {
+    public Customer saveCustomer(Customer customer) {
         if(customer == null)
             throw new IllegalArgumentException("Customer object is null");
         //todo implement duplicate check
         customer.setId(CustomerIdSequencer.nextCustomerId());
         storage.add(customer);
+        return customer;
     }
 
     @Override

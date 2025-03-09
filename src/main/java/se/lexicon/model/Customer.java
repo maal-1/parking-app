@@ -8,6 +8,12 @@ public class Customer {
     private Vehicle vehicle;
 
 
+    public Customer(String name, String phoneNumber, Vehicle vehicle) {
+        setName(name);
+        setPhoneNumber(phoneNumber);
+        setVehicle(vehicle);
+    }
+
     public Customer(String name, String phoneNumber, int id, Vehicle vehicle) {
         setId(id);
         setName(name);
